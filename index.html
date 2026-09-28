@@ -151,6 +151,66 @@
   .option-divider{
     margin:52px 0 34px; padding-top:8px; border-top:2px dashed var(--line);
   }
+
+  /* ---------- Brief del proyecto ---------- */
+  .brief{ margin:0 0 8px; }
+  .brief h2{font-size:clamp(22px,3.6vw,30px); font-weight:600; margin-bottom:12px}
+  .brief .intro{max-width:74ch; font-size:15.5px; margin:0 0 26px}
+  .timeline{
+    list-style:none; padding:0; margin:0 0 26px;
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr)); gap:12px;
+    counter-reset:paso;
+  }
+  .timeline li{
+    counter-increment:paso; position:relative;
+    background:var(--surface); border:1px solid var(--line); border-top:3px solid var(--forest);
+    border-radius:4px; padding:14px 16px 14px; font-size:13.5px; color:var(--muted);
+  }
+  .timeline .when{
+    display:block; font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--terracotta); margin-bottom:6px;
+  }
+  .timeline .when::before{ content:counter(paso) " · "; color:var(--muted); }
+  .timeline b{color:var(--ink); display:block; font-family:"Fraunces",Georgia,serif; font-size:15px; font-weight:600; margin-bottom:4px}
+  .brief-grid{
+    display:grid; grid-template-columns:1fr; gap:14px;
+    grid-auto-flow:row dense;
+  }
+  @media (min-width:720px){
+    .brief-grid{grid-template-columns:1fr 1fr}
+  }
+  .card{
+    background:var(--surface); border:1px solid var(--line); border-radius:4px;
+    padding:18px 20px; font-size:14px; box-shadow:0 1px 2px var(--shadow);
+  }
+  .card h3{font-size:16.5px; margin:0 0 10px}
+  .card .tag{
+    font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--muted); margin:0 0 6px;
+  }
+  .card ul,.card ol{margin:0; padding-left:19px}
+  .card li{margin-bottom:6px}
+  .card li:last-child{margin-bottom:0}
+  .card p{margin:0 0 10px}
+  .card.key{
+    grid-column:1 / -1; border:1.5px solid var(--forest);
+    background:color-mix(in srgb, var(--forest) 9%, var(--surface));
+  }
+  .card.key h3{color:var(--forest)}
+  .card.key .tag{color:var(--forest)}
+  .card.wide{grid-column:1 / -1}
+  .card.ask{border-left:3px solid var(--terracotta)}
+  .card dl{margin:0; display:grid; grid-template-columns:auto 1fr; gap:6px 14px}
+  .card dt{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--muted); padding-top:1px}
+  .card dd{margin:0}
+  .section-head{margin:40px 0 18px; padding-top:22px; border-top:1px solid var(--line)}
+  .section-head h2{font-size:clamp(20px,3.2vw,26px); font-weight:600}
+  @media (max-width:560px){
+    body{padding-inline:16px; padding-block:28px 56px}
+    .card{padding:16px}
+    .card dl{grid-template-columns:1fr; gap:2px}
+    .card dd{margin-bottom:8px}
+  }
 </style>
 </head>
 <body>
@@ -158,8 +218,107 @@
 <header class="cover">
   <p class="eyebrow">Casa Nasta Seres — Dos Valles, Bariloche</p>
   <h1>Implantación en el lote</h1>
-  <p>Volumen único y compacto (garage con lavadero y baño anexos, dos dormitorios, playroom con chimenea integrado al comedor por puerta corrediza, cocina y galerías de punta a punta), pensado en dos etapas de ejecución: la Etapa 1 ya construye la planta baja completa; la Etapa 2 equipa el baño junto al garage, agrega la galería del frente y suma la planta alta. El vecino ya construido, Zampini, linda con el lote por el lateral oeste; la mejor vista es hacia el suroeste, sobre la reserva natural del barrio.</p>
+  <p>Volumen único y compacto (garage con lavadero y baño anexos, dos dormitorios, playroom con chimenea integrado al comedor por puerta corrediza, cocina y galerías de punta a punta), pensado en dos etapas de ejecución: la Etapa 1 ya construye la planta baja completa; la Etapa 2 equipa el baño junto al garage, agrega la galería del frente y suma la planta alta. El vecino ya construido linda con el lote por el lateral oeste; la mejor vista es hacia el suroeste, sobre la reserva natural del barrio.</p>
 </header>
+
+<!-- =============================================================================================== -->
+<!-- BRIEF DEL PROYECTO                                                                                -->
+<!-- =============================================================================================== -->
+<section class="brief" id="brief" aria-labelledby="brief-title">
+  <p class="eyebrow">Brief del proyecto</p>
+  <h2 id="brief-title">Lo que queremos construir</h2>
+  <p class="intro">Somos Ramiro y Delfina, con tres hijas chicas (la menor nace en febrero de 2027). Hoy vivimos fuera del país y volvemos a Bariloche a principios de 2028. Queremos construir nuestra casa en dos etapas, pensadas desde el primer día como una sola casa (el reglamento no permite dos viviendas en el lote).</p>
+
+  <ol class="timeline">
+    <li><span class="when">2026–27</span><b>Diseño y aprobación</b>Proyecto y aprobación ante la Comisión de Arquitectura, y construcción de la Etapa 1.</li>
+    <li><span class="when">2027</span><b>Etapa 1 terminada</b>En 3 a 5 meses, con su propio final de obra. La alquilamos mientras seguimos afuera.</li>
+    <li><span class="when">Principios de 2028</span><b>Nos mudamos</b>Vivimos en la Etapa 1 mientras se construye la Etapa 2.</li>
+    <li><span class="when">2028 en adelante</span><b>Etapa 2</b>La casa definitiva.</li>
+  </ol>
+
+  <div class="brief-grid">
+    <article class="card">
+      <p class="tag">Etapa 1</p>
+      <h3>Rápida, pero bien hecha</h3>
+      <p>Estamos evaluando proveedores modulares o prefabricados para ganar tiempo y contener el costo. Lo que necesitamos de ellos:</p>
+      <ul>
+        <li>Calidad garantizada: aislación para el frío, estructura y materiales durables, buenas terminaciones.</li>
+        <li>Una vivienda completa y autosuficiente.</li>
+        <li>Su propio Certificado Final de Obra (art. 4.16 del reglamento).</li>
+        <li>Si el sistema no es tradicional, necesita aprobación expresa de la Comisión de Arquitectura.</li>
+      </ul>
+    </article>
+
+    <article class="card key">
+      <p class="tag">Clave</p>
+      <h3>La Etapa 1 ya contempla todo</h3>
+      <ul>
+        <li>Es la planta baja definitiva de la casa.</li>
+        <li>Estructura y fundaciones preparadas para recibir la planta alta de la Etapa 2.</li>
+        <li>Escalera prevista dentro del pasillo, y baño junto al garage reservado desde el inicio.</li>
+        <li>Instalaciones dimensionadas para la casa completa.</li>
+        <li>Hay que definir cómo se resuelve el techo de la Etapa 1 al sumar la planta alta.</li>
+        <li>La Etapa 2 se construye con nosotros viviendo en la Etapa 1.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <p class="tag">Etapa 2</p>
+      <h3>La casa definitiva</h3>
+      <ul>
+        <li>Es donde va la mayor inversión y la mayor calidad de construcción.</li>
+        <li>Suma la planta alta y la galería del frente.</li>
+        <li>Los dormitorios de planta baja pasan a ser oficina y taller.</li>
+        <li>Sistema constructivo abierto: el mismo de la Etapa 1 si funciona bien, o uno distinto (por ejemplo, tradicional).</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <p class="tag">Requisitos</p>
+      <h3>Lo que no negociamos</h3>
+      <ul>
+        <li>Casa luminosa y con vista: los espacios comunes reciben la luz del norte y miran a la reserva, al suroeste.</li>
+        <li>La reserva se vive como nuestro jardín, con una galería techada hacia ese lado.</li>
+        <li>Chimenea grande (para hacer un asado adentro), siempre contra un paño vidriado con vista.</li>
+        <li>Techo a dos aguas, aleros perimetrales y lucarnas; construcción preparada para el frío de Bariloche.</li>
+        <li>Cada dormitorio y cada baño con su propia puerta desde el pasillo: nunca pasar por un cuarto o un baño para llegar a otro ambiente.</li>
+        <li>Garage cerrado para dos autos sobre el lateral oeste, con el lavadero junto a él y sin vista.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <p class="tag">Datos</p>
+      <h3>El lote</h3>
+      <dl>
+        <dt>Lote</dt><dd>054, Dos Valles Club de Campo · 1.083,39 m² · zona R1</dd>
+        <dt>Forma</dt><dd>Irregular, se angosta hacia el fondo: frente 48,79 m, laterales 42,76 y 28,70 m</dd>
+        <dt>FOS 0,20</dt><dd>Huella máxima 216,68 m² (incluye galerías)</dd>
+        <dt>FOT 0,30</dt><dd>Máximo 325,02 m² construidos en total</dd>
+        <dt>Mínimos</dt><dd>130 m² en una planta o 150 m² en más de una; semicubiertos hasta el 20% del total</dd>
+        <dt>Retiros</dt><dd>Frente 6 m · fondo 10 m · laterales: 30% del frente entre los dos, mínimo 3 m por lado</dd>
+        <dt>Altura</dt><dd>Máxima 8,50 m · techo de 2 o más aguas, pendiente mínima 20°</dd>
+        <dt>Orientación</dt><dd>Calle al norte (luz) · reserva y mejor vista al suroeste · terreno casi plano</dd>
+      </dl>
+    </article>
+
+    <article class="card ask wide">
+      <p class="tag">Para vos</p>
+      <h3>Qué te pedimos</h3>
+      <ol>
+        <li>Tu mirada sobre el partido y la implantación.</li>
+        <li>Validar la estructura: la planta alta apoyada sobre una Etapa 1 modular.</li>
+        <li>Ayudarnos a evaluar las propuestas de los proveedores.</li>
+        <li>Conversar la firma y la presentación del proyecto ante la Comisión de Arquitectura.</li>
+        <li>Un orden de magnitud de costos por etapa.</li>
+      </ol>
+    </article>
+  </div>
+</section>
+
+<div class="section-head">
+  <p class="eyebrow">Plano de implantación</p>
+  <h2>La propuesta en el lote</h2>
+</div>
 
 <!-- =============================================================================================== -->
 <!-- OPCIÓN 2 · GARAGE                                                                                 -->
@@ -176,7 +335,7 @@
 </div>
 
 <div class="banner ok" id="banner-ok-o2">
-  <b>✅ Circulación corregida: cada dormitorio y cada baño tiene su propia puerta desde el pasillo — nunca hay que pasar por un cuarto para llegar a otro.</b> Con el lavadero, el baño completo junto al garage, la galería de punta a punta y la reorganización de cocina-comedor-playroom, la Etapa 1 creció de los 132 m² ajustados al mínimo a <b>157 m²</b> (todavía muy por debajo del máximo de FOS/FOT) — ya no es la versión más ajustada posible, es la versión con la circulación y los ambientes bien resueltos que pediste. Margen sobre el mínimo normativo (una planta, 130 m²): +27 m². Integrada (Etapa 2): huella 181 m² (margen FOS ≈35,7 m²), total construido ≈285 m² (margen FOT ≈40 m²).
+  <b>✅ Circulación resuelta: cada dormitorio y cada baño tiene su propia puerta desde el pasillo — nunca hay que pasar por un ambiente para llegar a otro.</b> Etapa 1 (una planta): <b>157 m²</b> (133 m² cerrados + 24 m² de galería), 27 m² por encima del mínimo normativo de 130 m². Integrada (Etapa 2): huella 181 m² (margen FOS ≈35,7 m²) y total construido ≈285 m² (margen FOT ≈40 m²).
 </div>
 
 <figure class="plan-sheet" id="figure-plan-o2">
@@ -281,7 +440,7 @@
       <rect x="264" y="114" width="116" height="108" fill="none" stroke="var(--forest)" stroke-width="0.9" stroke-dasharray="2.5 1.5"/>
       <text x="322" y="156" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="var(--ink)" font-weight="500">Garage</text>
       <text x="322" y="172" text-anchor="middle" font-family="IBM Plex Mono" font-size="7.3" fill="var(--muted)">36 m² · 2 autos</text>
-      <text x="322" y="196" text-anchor="middle" font-family="IBM Plex Mono" font-size="6.3" fill="var(--terracotta)">lateral oeste, linda con Zampini</text>
+      <text x="322" y="196" text-anchor="middle" font-family="IBM Plex Mono" font-size="6.3" fill="var(--terracotta)">lateral oeste, linda con el vecino</text>
 
       <!-- LAVADERO -->
       <rect x="264" y="222" width="58" height="44" fill="none" stroke="var(--forest)" stroke-width="0.9"/>
@@ -433,7 +592,7 @@
       <rect x="264" y="114" width="116" height="108" fill="none" stroke="var(--forest)" stroke-width="0.9" stroke-dasharray="2.5 1.5"/>
       <text x="322" y="156" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="var(--ink)" font-weight="500">Garage</text>
       <text x="322" y="172" text-anchor="middle" font-family="IBM Plex Mono" font-size="7.3" fill="var(--muted)">36 m² · 2 autos</text>
-      <text x="322" y="196" text-anchor="middle" font-family="IBM Plex Mono" font-size="6.3" fill="var(--terracotta)">lateral oeste, linda con Zampini</text>
+      <text x="322" y="196" text-anchor="middle" font-family="IBM Plex Mono" font-size="6.3" fill="var(--terracotta)">lateral oeste, linda con el vecino</text>
 
       <!-- LAVADERO (sin cambios) -->
       <rect x="264" y="222" width="58" height="44" fill="none" stroke="var(--forest)" stroke-width="0.9"/>
@@ -638,7 +797,7 @@
       <text x="500" y="393" text-anchor="end" font-family="IBM Plex Mono" font-size="7" fill="var(--muted)">Casa Nasta Seres · Dos Valles · Integrada, planta alta</text>
     </g>
   </svg>
-  <figcaption id="caption-o2">Etapa 1 (una planta, programa completo): garage (36 m², linda con Zampini) con lavadero al SO (6 m²) y el espacio del futuro baño completo al SE (7 m², reservado, sin equipar); pasillo (12 m²) con puerta propia a cada dormitorio (12+11 m²) y al baño familiar (9 m²); playroom+chimenea (20 m², nunca hacia el interior) integrado al comedor (10 m²) por puerta corrediza, cocina (10 m²) al costado; galería trasera de punta a punta (24 m²). 133 m² cerrados + 24 m² semicubierto = 157 m² — 27 m² sobre el mínimo normativo de 130.</figcaption>
+  <figcaption id="caption-o2">Etapa 1 (una planta, programa completo): garage (36 m², linda con el vecino) con lavadero al SO (6 m²) y el espacio del futuro baño completo al SE (7 m², reservado, sin equipar); pasillo (12 m²) con puerta propia a cada dormitorio (12+11 m²) y al baño familiar (9 m²); playroom+chimenea (20 m², nunca hacia el interior) integrado al comedor (10 m²) por puerta corrediza, cocina (10 m²) al costado; galería trasera de punta a punta (24 m²). 133 m² cerrados + 24 m² semicubierto = 157 m² — 27 m² sobre el mínimo normativo de 130.</figcaption>
 </figure>
 
 <div class="area-block show" id="area-e1-o2">
@@ -759,33 +918,32 @@
   </svg>
   <div>
     <b style="color:var(--ink); font-family:'IBM Plex Mono',monospace; font-size:12px">Ubicación en el lote real</b><br>
-    Volumen único y compacto (≈12 × 11,4 m, más las galerías de punta a punta adelante y atrás), corrido hacia el lateral oeste del lote, donde linda Zampini — el garage ocupa la esquina noroeste sobre ese lateral, en la misma posición que en el plano original de Raggio, ahora con su lavadero y baño completo anexados hacia el sur. Dormitorios y baño familiar del lado este; playroom-chimenea-comedor-cocina del lado sur, hacia la reserva. Brújula aproximada — sin mensura digital todavía. <b>Este dibujo chico es un croquis de posición, no a escala exacta</b> — el lote real se angosta hacia el fondo (frente 48,79 m, laterales de 42,76 m y 28,70 m) y todavía no tenemos los vértices exactos del agrimensor; por eso el bloque de la casa se dibujó cerca del frente, donde el lote es más ancho. Las superficies y el cumplimiento de FOS/FOT de esta opción están calculados sobre las plantas acotadas de arriba, no sobre este croquis.
+    Volumen único y compacto (≈12 × 11,4 m, más las galerías de punta a punta adelante y atrás), corrido hacia el lateral oeste del lote, donde linda el vecino ya construido — el garage ocupa la esquina noroeste sobre ese lateral, en la misma posición que en el proyecto aprobado anterior sobre este lote, con el lavadero y el baño completo anexados hacia el sur. Dormitorios y baño familiar del lado este; playroom-chimenea-comedor-cocina del lado sur, hacia la reserva. Brújula aproximada — sin mensura digital todavía. <b>Este dibujo chico es un croquis de posición, no a escala exacta</b> — el lote real se angosta hacia el fondo (frente 48,79 m, laterales de 42,76 m y 28,70 m) y todavía no tenemos los vértices exactos del agrimensor; por eso el bloque de la casa se dibujó cerca del frente, donde el lote es más ancho. Las superficies y el cumplimiento de FOS/FOT están calculados sobre las plantas acotadas de arriba, no sobre este croquis.
   </div>
 </div>
 
 <div class="concept">
-  <h3>Qué cambió en esta versión (27/09/2026) — circulación corregida</h3>
-  <p>Se agregó el lavadero (sudoeste del garage) y el espacio del baño completo (sudeste del garage, reservado en Etapa 1 y equipado en Etapa 2). Se corrigió el acceso al Dormitorio 2: antes se llegaba atravesando el Dormitorio 1, ahora tiene su propia puerta directa desde el pasillo, igual que el Dormitorio 1 y el baño familiar — nadie tiene que pasar por un cuarto para llegar a otro. La cocina y el comedor se reorganizaron: el comedor quedó más centrado, lindando con el Playroom por una puerta corrediza (con la puerta abierta, Playroom y comedor funcionan como un solo ambiente integrado), y la cocina quedó más al costado este.</p>
-  <h3>Por qué la Etapa 1 creció de 132 a 157 m²</h3>
-  <p>El objetivo original de esta opción era la casa más ajustada posible al mínimo normativo. Con todas las mejoras pedidas — lavadero, baño completo reservado, galería de punta a punta en vez de un tramo chico, dos dormitorios con acceso propio en vez de uno atravesando al otro — la superficie creció a 157 m², todavía muy por debajo de cualquier límite de FOS o FOT, pero ya no al filo del mínimo. Si el objetivo de "la más barata posible" sigue siendo prioritario sobre estas mejoras, se puede recortar de nuevo — pero tal como está pedido ahora, prioriza la circulación bien resuelta.</p>
+  <h3>Planta baja: la Etapa 1 ya es la casa completa de una planta</h3>
+  <p>Garage en la esquina noroeste, con el lavadero al sudoeste (una sola puerta, hacia el garage) y el espacio de un baño completo al sudeste, que en la Etapa 1 queda reservado y se equipa en la Etapa 2; sus dos puertas dan al Playroom y al pasillo. El pasillo da acceso propio a cada dormitorio y al baño familiar. Hacia el sur, frente a la reserva, el Playroom con la chimenea contra el paño vidriado, el comedor —unido al Playroom por una puerta corrediza: abierta, los dos funcionan como un solo ambiente— y la cocina al costado este.</p>
+  <h3>Por qué 157 m² y no el mínimo de 130</h3>
+  <p>La Etapa 1 prioriza una circulación bien resuelta y un programa completo: lavadero, espacio para un segundo baño, galería de punta a punta y dos dormitorios con acceso propio. Por eso supera el mínimo normativo en 27 m², y sigue con margen amplio respecto de los topes de FOS y FOT.</p>
   <h3>Las galerías, de punta a punta y por etapas</h3>
-  <p>En la Etapa 1 se construye solo la galería trasera (la del Playroom), pero ahora completa, de punta a punta de la casa (24 m², no un tramo de 8 m² como antes). La galería del frente se agrega recién en la Etapa 2, también completa. Las dos galerías cuentan contra el FOS como semicubierto.</p>
-  <h3>La planta alta: suite principal y ala de las chicas, cada una con su propia lógica de acceso</h3>
-  <p>En el ala oeste, sobre el garage: el Playroom (arriba, vista norte) y el Dormitorio principal (vista suroeste) tienen cada uno su propia puerta desde el pasillo. Entre ambos, el Baño en suite y el Vestidor ya no son dos franjas apiladas de punta a punta — ahora son dos ambientes más cuadrados, lado a lado, separados por un mini pasillo: el Baño al oeste, el Vestidor al este. Ese mini pasillo se alcanza solo desde el Dormitorio principal, y desde ahí se entra tanto al Vestidor como al Baño — nunca se puede cruzar del Playroom al Dormitorio pasando por el baño (ese era el error del plano anterior). En el ala este, el baño compartido de las chicas quedó literalmente entre los dos dormitorios, dividido en Ducha y Toilet — cada uno con su propia puerta directa desde el pasillo — y ambos abren a una Vanity central con dos bachas, recalibrada para que las dos bachas queden proporcionadas dentro del mueble. Ni el Dormitorio 2 ni el Dormitorio 3 tienen puerta hacia el baño: se entra siempre por el pasillo.</p>
+  <p>En la Etapa 1 se construye la galería trasera, completa, de punta a punta de la casa (24 m²), como transición cubierta hacia la reserva. La galería del frente, también completa (24 m²), se agrega en la Etapa 2. Las dos cuentan en el FOS como semicubierto.</p>
+  <h3>La planta alta: suite principal y ala de las chicas</h3>
+  <p>En el ala oeste, sobre el garage: el Playroom de arriba (vista norte) y el Dormitorio principal (vista suroeste), cada uno con su propia puerta desde el pasillo. Entre ambos, el Baño en suite (oeste) y el Vestidor (este), separados por un mini pasillo al que se entra solo desde el Dormitorio principal: nunca se cruza del Playroom al Dormitorio pasando por el baño. En el ala este, el baño compartido queda entre los dos dormitorios, dividido en Ducha y Toilet, cada uno con su propia puerta desde el pasillo, y ambos abren a una Vanity central de dos bachas. Ningún dormitorio tiene puerta hacia el baño: se entra siempre por el pasillo.</p>
   <h3>La cocina y la reprogramación de la Etapa 2</h3>
-  <p>La mesada con las tres hornallas quedó contra la pared este de la cocina (con su propia ventana), en vez de flotar en el medio del ambiente. Al integrar la Etapa 2, los dos dormitorios de planta baja (Dormitorio 1 y Dormitorio 2) se reprograman — como ya estaba pensado en versiones anteriores de esta opción, y que se había perdido en el rediseño del 27/09 — Dormitorio 1 pasa a ser Oficina y Dormitorio 2 pasa a ser Taller de arte, con la misma superficie y ubicación.</p>
+  <p>La mesada queda contra la pared este de la cocina, con su propia ventana. Al integrar la Etapa 2, los dos dormitorios de planta baja se reprograman sin cambiar superficie ni ubicación: el Dormitorio 1 pasa a ser Oficina y el Dormitorio 2, Taller de arte.</p>
 </div>
 
 <footer class="notes">
-  <h3>Qué queda pendiente</h3>
+  <h3>Temas abiertos</h3>
   <ol>
-    <li><b>✅ Confirmado por Ram (27/09/2026):</b> el lavadero tiene una sola puerta, hacia el garage; el baño completo mantiene sus dos puertas (Playroom + pasillo), con la del Playroom confirmada como el acceso principal.</li>
-    <li>Confirmar las medidas reales del garage del plano de Raggio con un dimensionamiento acotado exacto (acá se mantuvo en 36 m², igual que en las versiones anteriores).</li>
-    <li>Afinar todos los ambientes en el plano acotado ejecutivo — mobiliario y artefactos a escala fina, sobre todo el baño compartido de planta alta (ducha + toilet + vanity en 12 m²).</li>
-    <li>Confirmar con un profesional matriculado la factibilidad estructural de la planta alta sobre el garage y sobre el ala este.</li>
-    <li>Plano de mensura digital del agrimensor, para reemplazar la geometría aproximada del lote por vértices exactos.</li>
-    <li>Confirmar con mensura/escritura que el vecino Zampini linda efectivamente por el lateral oeste.</li>
-    <li>Con esto aprobado por Ram, sumar esta opción a la comparación de proveedores modulares (Arenzon, Atlas, Gabriel).</li>
+    <li>Quién firma y presenta el proyecto ante la Comisión de Arquitectura (profesional matriculado en Río Negro).</li>
+    <li>Sistema constructivo de la Etapa 1 y su aprobación ante la Comisión si no es tradicional.</li>
+    <li>Factibilidad estructural de la planta alta sobre la Etapa 1 (garage y ala este), validada por un profesional matriculado, y cómo se resuelve el techo de la Etapa 1 al sumar la planta alta.</li>
+    <li>Plano de mensura digital del agrimensor, para reemplazar la geometría aproximada del lote por los vértices exactos, y confirmar que el vecino construido linda por el lateral oeste.</li>
+    <li>Medidas definitivas del garage con cotas exactas (acá se tomó 36 m², como en el proyecto aprobado anterior sobre este lote).</li>
+    <li>Plano ejecutivo: mobiliario y artefactos a escala, sobre todo el baño compartido de planta alta (ducha + toilet + vanity en 12 m²) y el mini pasillo de la suite.</li>
   </ol>
 </footer>
 
@@ -827,9 +985,9 @@
     VB: { e1:'235 25 380 400', pb:'235 25 380 400', pa:'235 25 380 400' },
     LABEL: { e1:'Mostrando: Etapa 1 (una planta, programa completo)', pb:'Mostrando: integrada, planta baja', pa:'Mostrando: integrada, planta alta' },
     CAPTION: {
-      e1:'Etapa 1 (una planta, programa completo): garage (36 m², linda con Zampini) con lavadero al SO (6 m²) y el espacio del futuro baño completo al SE (7 m², reservado, sin equipar); pasillo (12 m²) con puerta propia a cada dormitorio (12+11 m²) y al baño familiar (9 m²); playroom+chimenea (20 m², nunca hacia el interior) integrado al comedor (10 m²) por puerta corrediza, cocina (10 m²) al costado; galería trasera de punta a punta (24 m²). 133 m² cerrados + 24 m² semicubierto = 157 m² — 27 m² sobre el mínimo normativo de 130.',
+      e1:'Etapa 1 (una planta, programa completo): garage (36 m², linda con el vecino) con lavadero al SO (6 m²) y el espacio del futuro baño completo al SE (7 m², reservado, sin equipar); pasillo (12 m²) con puerta propia a cada dormitorio (12+11 m²) y al baño familiar (9 m²); playroom+chimenea (20 m², nunca hacia el interior) integrado al comedor (10 m²) por puerta corrediza, cocina (10 m²) al costado; galería trasera de punta a punta (24 m²). 133 m² cerrados + 24 m² semicubierto = 157 m² — 27 m² sobre el mínimo normativo de 130.',
       pb:'Integrada, planta baja: misma huella que la Etapa 1 (133 m² cerrados, sin crecer). El baño junto al garage pasa de espacio reservado a equipado. Los dos dormitorios se reprograman: Dormitorio 1 pasa a ser Oficina, Dormitorio 2 pasa a ser Taller de arte. Se agrega la galería del frente, también de punta a punta (24 m²), y la escalera a planta alta se construye dentro del pasillo. Huella total 181 m² — FOS con margen amplio: ≈35,7 m².',
-      pa:'Planta alta nueva (104 m²): ala oeste — Playroom (arriba, vista norte); debajo, Baño en suite (cuadrado, oeste) y Vestidor (cuadrado, este) separados por un mini pasillo, accesibles solo desde el Dormitorio principal (vista suroeste) — nunca desde el Playroom. Ala este — Dormitorio 2, Baño compartido (ducha y toilet con puertas propias desde el pasillo, vanity de dos bachas recalibrada) y Dormitorio 3; ninguno de los dos dormitorios tiene puerta hacia el baño. El contorno gris punteado muestra la planta baja como referencia.'
+      pa:'Planta alta nueva (104 m²): ala oeste — Playroom (arriba, vista norte); debajo, Baño en suite (cuadrado, oeste) y Vestidor (cuadrado, este) separados por un mini pasillo, accesibles solo desde el Dormitorio principal (vista suroeste) — nunca desde el Playroom. Ala este — Dormitorio 2, Baño compartido (ducha y toilet con puertas propias desde el pasillo, vanity de dos bachas) y Dormitorio 3; ninguno de los dos dormitorios tiene puerta hacia el baño. El contorno gris punteado muestra la planta baja como referencia.'
     }
   });
 })();
